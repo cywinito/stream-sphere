@@ -1,7 +1,10 @@
+import { UserButton } from "@clerk/nextjs";
+
 export default function Home() {
   return (
-    <div className="flex items-center justify-center h-screen">
-      <h1 className="text-3xl font-bold">Hello Twitch Clone</h1>
+    <div className="flex flex-col gap-y-4">
+      <h1>Dashboard</h1>
+      <UserButton afterSignOutUrl="/" />
     </div>
   );
 }
