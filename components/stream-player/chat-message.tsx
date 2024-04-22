@@ -2,6 +2,7 @@ import { format } from "date-fns";
 import { ReceivedChatMessage } from "@livekit/components-react";
 
 import { stringToColor } from "@/lib/utils";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface ChatMessageProps {
   data: ReceivedChatMessage;
@@ -17,9 +18,18 @@ export const ChatMessage = ({ data }: ChatMessageProps) => {
           <span className="truncate" style={{ color: color }}>
             {data.from?.name}
           </span>
+          :
         </p>
         <p className="text-sm break-all">{data.message}</p>
       </div>
+    </div>
+  );
+};
+
+export const ChatMessageSkeleton = () => {
+  return (
+    <div className="flex h-full items-center justify-center">
+      <Skeleton className="w-1/2 h-6" />
     </div>
   );
 };

@@ -81,7 +81,7 @@ export const ChatForm = ({
   );
 };
 
-export const chatFormSkeleton = () => {
+export const ChatFormSkeleton = () => {
   return (
     <div className="flex flex-col items-center gap-y-4 p-3">
       <Skeleton className="w-full h-10" />
