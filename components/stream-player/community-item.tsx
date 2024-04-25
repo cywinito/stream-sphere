@@ -27,8 +27,7 @@ const CommunityItem = ({
   const isSelf = participantName === viewerName;
   const isHost = viewerName === hostName;
   const handleBlock = () => {
-    if (!participantName || isSelf || isHost) return;
-
+    if (!participantName || isSelf || !isHost) return;
     startTransition(() => {
       onBlock(participantIdentity)
         .then(() => toast.success(`You have blocked ${participantName}`))
