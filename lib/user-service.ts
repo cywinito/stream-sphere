@@ -6,7 +6,15 @@ export const getUserByUsername = async (username: string) => {
       username,
     },
     include: {
-      stream: true,
+      stream: {
+        select: {
+          name: true,
+          thumbnailUrl: true,
+          isChatEnabled: true,
+          isChatDelayed: true,
+          isChatFollowersOnly: true,
+        },
+      },
       _count: {
         select: {
           followedBy: true,
@@ -24,7 +32,15 @@ export const getUserById = async (id: string) => {
       id,
     },
     include: {
-      stream: true,
+      stream: {
+        select: {
+          name: true,
+          thumbnailUrl: true,
+          isChatEnabled: true,
+          isChatDelayed: true,
+          isChatFollowersOnly: true,
+        },
+      },
     },
   });
   return user;

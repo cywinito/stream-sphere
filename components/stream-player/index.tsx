@@ -15,12 +15,26 @@ import { AboutCard } from "./about-card";
 
 interface StreamPlayerProps {
   user: User & {
-    stream: Stream | null;
+    stream: Pick<
+      Stream,
+      | "name"
+      | "thumbnailUrl"
+      | "isChatEnabled"
+      | "isChatDelayed"
+      | "isChatFollowersOnly"
+    > | null;
     _count: {
       followedBy: number;
     };
   };
-  stream: Stream;
+  stream: Pick<
+    Stream,
+    | "name"
+    | "thumbnailUrl"
+    | "isChatEnabled"
+    | "isChatDelayed"
+    | "isChatFollowersOnly"
+  >;
   isFollowing: boolean;
 }
 
