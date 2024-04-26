@@ -5,14 +5,21 @@ export const getUserByUsername = async (username: string) => {
     where: {
       username,
     },
-    include: {
+    select: {
+      id: true,
+      externalUserId: true,
+      username: true,
+      bio: true,
+      imageUrl: true,
       stream: {
         select: {
-          name: true,
-          thumbnailUrl: true,
+          id: true,
+          isLive: true,
           isChatEnabled: true,
           isChatDelayed: true,
           isChatFollowersOnly: true,
+          thumbnailUrl: true,
+          name: true,
         },
       },
       _count: {
