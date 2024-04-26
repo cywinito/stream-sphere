@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { UserAvatar } from "@/components/user-avatar";
 import { Skeleton } from "@/components//ui/skeleton";
+import { LiveBadge } from "@/components/live-badge";
 
 interface ThumbnailProps {
   src: string | null;
@@ -32,12 +33,19 @@ export const Thumbnail = ({
     );
   } else {
     content = (
-      <Image
-        src={src}
-        fill
-        alt="thumbnail"
-        className="object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
-      />
+      <>
+        <Image
+          src={src}
+          fill
+          alt="thumbnail"
+          className="object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
+        />
+        {isLive && (
+          <div className="absolute top-2 left-2 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform">
+            <LiveBadge />
+          </div>
+        )}
+      </>
     );
   }
   return (
