@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "StreamSphere",
-  description: "Streaming platform for programmers",
+  description: "Entertainment streaming platform",
 };
 
 export default function RootLayout({
